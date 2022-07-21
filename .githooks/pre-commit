@@ -1,0 +1,38 @@
+#!/bin/sh
+source .image
+
+docker images | grep $IMAGE &> /dev/null
+IMAGE_EXISTS=$?
+
+if [[ $IMAGE_EXISTS -ne 0 ]]; then
+  docker pull $IMAGE
+fi
+
+repo_root=$(git rev-parse --show-toplevel)
+cd ${repo_root}
+
+docker ps -a | grep $IMAGE &> /dev/null
+CONTAINER_EXISTS=$?
+
+if [[ $CONTAINER_EXISTS -ne 0 ]]; then
+    docker run --rm \
+        -v ${repo_root}:${repo_root} \
+        -v $HOME/.ssh:/root/.ssh:ro \
+        -v $HOME/.cache/pre-commit:/root/.cache/pre-commit \
+        -v $HOME/.terraform.d/plugin-cache:/root/.terraform.d/plugin-cache \
+        -w ${repo_root} \
+        -e TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache" \
+        --entrypoint .githooks/pre-commit.installed \
+        $IMAGE
+else
+    echo "Please exit the running container before running pre-commit"
+fi
+
+# Keep module docs up to date
+for i in $(find ${repo_root} -name "README.md")
+do
+  git add $i
+done
+
+# Run file cleanup script
+${repo_root}/scripts/cleanup.sh

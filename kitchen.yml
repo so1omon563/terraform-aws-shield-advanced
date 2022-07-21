@@ -1,0 +1,30 @@
+# kitchen-terraform - https://newcontext-oss.github.io/kitchen-terraform/
+---
+# This is a required test kitchen configuration, even though
+# we override its behavior within each platform configuration
+suites:
+  - name: default
+
+driver:
+  name: terraform
+
+provisioner:
+  name: terraform
+
+verifier:
+  name: terraform
+
+platforms:
+  <% for test in [
+  "default",
+  ] %>
+  - name: <%= test %>
+    driver:
+      root_module_directory: "test/fixture/<%= test %>"
+    verifier:
+      systems:
+        - name: <%= test %>
+          backend: local
+          controls:
+            - <%= test %>
+<% end %>

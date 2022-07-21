@@ -1,0 +1,21 @@
+# Terraform
+**/.terraform/*
+terraform.tfvars
+*.tfstate
+*.tfstate.*
+*.terraform
+
+# This would normally be checked in for locking down provider versions, but we don't want it saved for our tests.
+*.terraform.lock.hcl
+
+# Kitchen working files
+.kitchen
+Gemfile.lock
+.bundle
+
+# Crash log files
+crash.log
+
+# OS X ugliness
+.history
+**.DS_Store

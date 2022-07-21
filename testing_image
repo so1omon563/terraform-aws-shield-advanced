@@ -1,0 +1,40 @@
+#!/bin/sh
+source .image
+
+[ ! -e $HOME/.terraform.d/plugin-cache ] && mkdir -p $HOME/.terraform.d/plugin-cache
+[ ! -e $HOME/.cache/pre-commit ] && mkdir -p $HOME/.cache/pre-commit
+
+
+# Checks to see if AWS_* environment variables are set and only exports them if they are there.
+if [ -z $AWS_DEFAULT_REGION ] && [ -z $AWS_REGION ] && [ -z $AWS_ACCESS_KEY_ID ] && [ -z $AWS_SECRET_ACCESS_KEY ] && [ -z $AWS_SESSION_TOKEN ]; then
+
+    docker run --rm -it \
+    -v $PWD:/workspace \
+    -v $HOME/.cache/pre-commit:/root/.cache/pre-commit \
+    -v $HOME/.terraform.d/plugin-cache:/root/.terraform.d/plugin-cache:rw \
+    -v $HOME/.ssh:/root/.ssh:ro \
+    -v $HOME/.aws:/root/.aws:rw \
+    -e TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache" \
+    -e WORKSPACE=$PWD \
+    -h $(basename $PWD) \
+    $IMAGE
+
+else
+
+    docker run --rm -it \
+    -v $PWD:/workspace \
+    -v $HOME/.cache/pre-commit:/root/.cache/pre-commit \
+    -v $HOME/.terraform.d/plugin-cache:/root/.terraform.d/plugin-cache:rw \
+    -v $HOME/.ssh:/root/.ssh:ro \
+    -v $HOME/.aws:/root/.aws:rw \
+    -e TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache" \
+    -e WORKSPACE=$PWD \
+    -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+    -e AWS_REGION=$AWS_REGION \
+    -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+    -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+    -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
+    -h $(basename $PWD) \
+    $IMAGE
+
+fi

@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.17 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+    hooks:
+      - id: terraform-fmt
+      - id: terraform-validate
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0 # Use the ref you want to point at
+    hooks:
+      - id: check-json
+      - id: check-ast
+      - id: check-merge-conflict
+      - id: detect-aws-credentials
+        args: [--allow-missing-credentials]
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: pretty-format-json
+        args: [--autofix]
+      - id: trailing-whitespace
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.72.2
+    hooks:
+      - id: terraform_tfsec
+        args:
+          - >
+            --args=--exclude-downloaded-modules
+      - id: terraform_checkov
+      - id: terraform_docs
+        args:
+          - --hook-config=--add-to-existing-file=true # Boolean. true or false
+          - --args=--config=.terraform-docs.yml
