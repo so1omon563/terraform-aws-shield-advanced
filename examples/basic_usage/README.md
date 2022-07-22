@@ -17,7 +17,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield-all"></a> [shield-all](#module\_shield-all) | ../../ | n/a |
+| <a name="module_shield-all"></a> [shield-all](#module\_shield-all) | so1omon563/shield-advanced/aws | 1.0.0 |
 
 ## Resources
 

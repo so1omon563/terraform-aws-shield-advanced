@@ -19,7 +19,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield-individual"></a> [shield-individual](#module\_shield-individual) | ../../modules/individual_shield | n/a |
+| <a name="module_shield-individual"></a> [shield-individual](#module\_shield-individual) | so1omon563/shield-advanced/aws//modules/individual_shield | 1.0.0 |
 
 ## Resources
 
