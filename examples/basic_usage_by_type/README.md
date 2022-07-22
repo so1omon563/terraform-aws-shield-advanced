@@ -17,7 +17,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield-by-resource-type"></a> [shield-by-resource-type](#module\_shield-by-resource-type) | ../../modules/by_resource_type | n/a |
+| <a name="module_shield-by-resource-type"></a> [shield-by-resource-type](#module\_shield-by-resource-type) | so1omon563/shield-advanced/aws//modules/by_resource_type | 1.0.0 |
 
 ## Resources
 

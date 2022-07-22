@@ -17,9 +17,8 @@ resource "aws_eip" "example" {
 }
 
 module "shield-individual" {
-  #   source  = "so1omon563/shield-advanced/aws//modules/individual_shield"
-  #   version = "0.2.0" # Replace with appropriate version
-  source       = "../../modules/individual_shield"
+  source       = "so1omon563/shield-advanced/aws//modules/individual_shield"
+  version      = "1.0.0" # Replace with appropriate version
   name         = "example"
   resource_arn = "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"
   tags = {
