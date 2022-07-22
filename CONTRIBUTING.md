@@ -10,7 +10,7 @@ All partcipants are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md)
 
 We utilize **Github Issues** for issue tracking and contributions. You can contribute in two ways:
 
-1. Reporting an issue or making a feature request [here](https://github.com/so1omon563/terraform-aws-sns/issues/new).
+1. Reporting an issue or making a feature request [here](https://github.com/so1omon563/terraform-aws-shield/issues/new).
 2. Adding features or fixing bugs yourself and contributing your code to InSpec.
 
 ## Contribution Process

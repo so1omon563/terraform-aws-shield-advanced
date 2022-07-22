@@ -1,8 +1,8 @@
-# AWS Shield Advanced protection for ALL resources
+# Individual AWS Shield Advanced protection
 
-Creates AWS Shield Advanced protection for all supported resources.
+Creates AWS Shield Advanced protection for a single resource.
 
-These resources include:
+These resources can include:
 
 - Cloudfront distribution
 
@@ -16,18 +16,10 @@ These resources include:
 
 - Elastic IP address
 
-Note that this module will use the same `aggregation` value for all resources.
-
-If you wish to select / de-select resources by type, and control the aggregation types , there is a `by_resource_type` submodule.
-
-For protecting individual resources, there is the `individual_shield` submodule. This submodule can be directly called to create a single protection for a single resource.
-
-These submodules can be found under the [modules](https://github.com/so1omon563/terraform-aws-shield/tree/main/modules) directory.
 
 Examples for use can be found under the [examples](https://github.com/so1omon563/terraform-aws-shield/tree/main/examples) directory.
 
 **Please note that there are no tests for this module at this time. The testing framework we use does not cover these resource types currently.**
-
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Auto-generated technical documentation is created using [`terraform-docs`](https://terraform-docs.io/)
 
@@ -52,16 +44,19 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_shield_protection_group.all](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/shield_protection_group) | resource |
+| [aws_shield_protection.shield](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/shield_protection) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aggregation"></a> [aggregation](#input\_aggregation) | n/a | `string` | `"SUM"` | no |
+| <a name="input_name"></a> [name](#input\_name) | Short, descriptive name of the environment. All resources will be named using this value as a prefix. | `string` | n/a | yes |
+| <a name="input_resource_arn"></a> [resource\_arn](#input\_resource\_arn) | The ARN of the resource to be protected. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tag names and values for tags to apply to all taggable resources created by the module. Default value is a blank map to allow for using Default Tags in the provider. | `map(string)` | `{}` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_shield"></a> [shield](#output\_shield) | A map of properties for the created AWS Shield protection. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
