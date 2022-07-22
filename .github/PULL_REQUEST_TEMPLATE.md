@@ -1,6 +1,6 @@
 ### Description
 
-Please describe what this change achieves. Ensure you have read the [Contributiion](https://github.com/so1omon563/terraform-aws-shield-advanced/blob/main/CONTRIBUTING.md) document before submitting.
+Please describe what this change achieves. Ensure you have read the [Contribution](https://github.com/so1omon563/terraform-aws-shield-advanced/blob/main/CONTRIBUTING.md) document before submitting.
 
 ### Issues Resolved
 
