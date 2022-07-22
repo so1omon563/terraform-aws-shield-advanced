@@ -58,10 +58,12 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aggregation"></a> [aggregation](#input\_aggregation) | n/a | `string` | `"SUM"` | no |
+| <a name="input_aggregation"></a> [aggregation](#input\_aggregation) | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for ALL protected resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information. | `string` | `"SUM"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tag names and values for tags to apply to all taggable resources created by the module. Default value is a blank map to allow for using Default Tags in the provider. | `map(string)` | `{}` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_shield"></a> [shield](#output\_shield) | A map of properties for the created AWS Shield protection. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

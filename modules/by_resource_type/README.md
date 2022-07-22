@@ -63,21 +63,28 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_application_load_balancers"></a> [application\_load\_balancers](#input\_application\_load\_balancers) | n/a | `bool` | `true` | no |
-| <a name="input_application_load_balancers_aggregation"></a> [application\_load\_balancers\_aggregation](#input\_application\_load\_balancers\_aggregation) | n/a | `string` | `"MEAN"` | no |
-| <a name="input_classic_load_balancers"></a> [classic\_load\_balancers](#input\_classic\_load\_balancers) | n/a | `bool` | `true` | no |
-| <a name="input_classic_load_balancers_aggregation"></a> [classic\_load\_balancers\_aggregation](#input\_classic\_load\_balancers\_aggregation) | n/a | `string` | `"MEAN"` | no |
-| <a name="input_cloudfront_distributions"></a> [cloudfront\_distributions](#input\_cloudfront\_distributions) | n/a | `bool` | `true` | no |
-| <a name="input_cloudfront_distributions_aggregation"></a> [cloudfront\_distributions\_aggregation](#input\_cloudfront\_distributions\_aggregation) | n/a | `string` | `"MAX"` | no |
-| <a name="input_elastic_ip_addresses"></a> [elastic\_ip\_addresses](#input\_elastic\_ip\_addresses) | n/a | `bool` | `true` | no |
-| <a name="input_elastic_ip_addresses_aggregation"></a> [elastic\_ip\_addresses\_aggregation](#input\_elastic\_ip\_addresses\_aggregation) | n/a | `string` | `"SUM"` | no |
-| <a name="input_global_accelerators"></a> [global\_accelerators](#input\_global\_accelerators) | n/a | `bool` | `true` | no |
-| <a name="input_global_accelerators_aggregation"></a> [global\_accelerators\_aggregation](#input\_global\_accelerators\_aggregation) | n/a | `string` | `"MEAN"` | no |
-| <a name="input_route53_hosted_zones"></a> [route53\_hosted\_zones](#input\_route53\_hosted\_zones) | n/a | `bool` | `true` | no |
-| <a name="input_route53_hosted_zones_aggregation"></a> [route53\_hosted\_zones\_aggregation](#input\_route53\_hosted\_zones\_aggregation) | n/a | `string` | `"SUM"` | no |
+| <a name="input_application_load_balancers"></a> [application\_load\_balancers](#input\_application\_load\_balancers) | Whether to protect Application Load Balancers or not. | `bool` | `true` | no |
+| <a name="input_application_load_balancers_aggregation"></a> [application\_load\_balancers\_aggregation](#input\_application\_load\_balancers\_aggregation) | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Application Load Balancer resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information. | `string` | `"MEAN"` | no |
+| <a name="input_classic_load_balancers"></a> [classic\_load\_balancers](#input\_classic\_load\_balancers) | Whether to protect Classic Load Balancers or not. | `bool` | `true` | no |
+| <a name="input_classic_load_balancers_aggregation"></a> [classic\_load\_balancers\_aggregation](#input\_classic\_load\_balancers\_aggregation) | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Classic Load Balancer resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information. | `string` | `"MEAN"` | no |
+| <a name="input_cloudfront_distributions"></a> [cloudfront\_distributions](#input\_cloudfront\_distributions) | Whether to protect CloudFront Distributions or not. | `bool` | `true` | no |
+| <a name="input_cloudfront_distributions_aggregation"></a> [cloudfront\_distributions\_aggregation](#input\_cloudfront\_distributions\_aggregation) | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for CloudFront Distribution resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information. | `string` | `"MAX"` | no |
+| <a name="input_elastic_ip_addresses"></a> [elastic\_ip\_addresses](#input\_elastic\_ip\_addresses) | Whether to protect Elastic IP Addresses or not. | `bool` | `true` | no |
+| <a name="input_elastic_ip_addresses_aggregation"></a> [elastic\_ip\_addresses\_aggregation](#input\_elastic\_ip\_addresses\_aggregation) | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Elastic IP Address resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information. | `string` | `"SUM"` | no |
+| <a name="input_global_accelerators"></a> [global\_accelerators](#input\_global\_accelerators) | Whether to protect Global Accelerators or not. | `bool` | `true` | no |
+| <a name="input_global_accelerators_aggregation"></a> [global\_accelerators\_aggregation](#input\_global\_accelerators\_aggregation) | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Global Accelerator resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information. | `string` | `"MEAN"` | no |
+| <a name="input_route53_hosted_zones"></a> [route53\_hosted\_zones](#input\_route53\_hosted\_zones) | Whether to protect Route53 Hosted Zones or not. | `bool` | `true` | no |
+| <a name="input_route53_hosted_zones_aggregation"></a> [route53\_hosted\_zones\_aggregation](#input\_route53\_hosted\_zones\_aggregation) | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Route53 Hosted Zone resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information. | `string` | `"SUM"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tag names and values for tags to apply to all taggable resources created by the module. Default value is a blank map to allow for using Default Tags in the provider. | `map(string)` | `{}` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_shield_application_load_balancers"></a> [shield\_application\_load\_balancers](#output\_shield\_application\_load\_balancers) | A map of properties for the created Application Load Balancer AWS Shield protections. |
+| <a name="output_shield_classic_load_balancers"></a> [shield\_classic\_load\_balancers](#output\_shield\_classic\_load\_balancers) | A map of properties for the created Classic Load Balancer AWS Shield protections. |
+| <a name="output_shield_cloudfront_distributions"></a> [shield\_cloudfront\_distributions](#output\_shield\_cloudfront\_distributions) | A map of properties for the created CloudFront Distribution AWS Shield protections. |
+| <a name="output_shield_elastic_ip_addresses"></a> [shield\_elastic\_ip\_addresses](#output\_shield\_elastic\_ip\_addresses) | A map of properties for the created Elastic IP Address AWS Shield protections. |
+| <a name="output_shield_global_accelerators"></a> [shield\_global\_accelerators](#output\_shield\_global\_accelerators) | A map of properties for the created Global Accelerator AWS Shield protections. |
+| <a name="output_shield_route53_hosted_zone"></a> [shield\_route53\_hosted\_zone](#output\_shield\_route53\_hosted\_zone) | A map of properties for the created Route53 Hosted Zone AWS Shield protections. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
