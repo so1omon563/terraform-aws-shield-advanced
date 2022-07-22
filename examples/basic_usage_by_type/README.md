@@ -17,7 +17,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield-all"></a> [shield-all](#module\_shield-all) | ../../ | n/a |
+| <a name="module_shield-by-resource-type"></a> [shield-by-resource-type](#module\_shield-by-resource-type) | ../../modules/by_resource_type | n/a |
 
 ## Resources
 
@@ -31,5 +31,5 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_shield-all"></a> [shield-all](#output\_shield-all) | n/a |
+| <a name="output_shield-by-resource-type"></a> [shield-by-resource-type](#output\_shield-by-resource-type) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

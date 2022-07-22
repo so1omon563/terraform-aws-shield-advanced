@@ -5,8 +5,9 @@ variable "tags" {
 }
 
 variable "aggregation" {
-  type    = string
-  default = "SUM"
+  type        = string
+  description = "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for ALL protected resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information."
+  default     = "SUM"
   validation {
     condition = contains([
       "SUM",

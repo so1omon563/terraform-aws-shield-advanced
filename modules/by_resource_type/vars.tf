@@ -5,12 +5,15 @@ variable "tags" {
 }
 
 variable "cloudfront_distributions" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Whether to protect CloudFront Distributions or not."
+  default     = true
 }
+
 variable "cloudfront_distributions_aggregation" {
-  type    = string
-  default = "MAX"
+  type        = string
+  description = "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for CloudFront Distribution resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information."
+  default     = "MAX"
   validation {
     condition = contains([
       "SUM",
@@ -22,13 +25,15 @@ variable "cloudfront_distributions_aggregation" {
 }
 
 variable "route53_hosted_zones" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Whether to protect Route53 Hosted Zones or not."
+  default     = true
 }
 
 variable "route53_hosted_zones_aggregation" {
-  type    = string
-  default = "SUM"
+  type        = string
+  description = "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Route53 Hosted Zone resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information."
+  default     = "SUM"
   validation {
     condition = contains([
       "SUM",
@@ -40,13 +45,15 @@ variable "route53_hosted_zones_aggregation" {
 }
 
 variable "global_accelerators" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Whether to protect Global Accelerators or not."
+  default     = true
 }
 
 variable "global_accelerators_aggregation" {
-  type    = string
-  default = "MEAN"
+  type        = string
+  description = "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Global Accelerator resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information."
+  default     = "MEAN"
   validation {
     condition = contains([
       "SUM",
@@ -58,13 +65,15 @@ variable "global_accelerators_aggregation" {
 }
 
 variable "application_load_balancers" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Whether to protect Application Load Balancers or not."
+  default     = true
 }
 
 variable "application_load_balancers_aggregation" {
-  type    = string
-  default = "MEAN"
+  type        = string
+  description = "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Application Load Balancer resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information."
+  default     = "MEAN"
   validation {
     condition = contains([
       "SUM",
@@ -76,13 +85,15 @@ variable "application_load_balancers_aggregation" {
 }
 
 variable "classic_load_balancers" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Whether to protect Classic Load Balancers or not."
+  default     = true
 }
 
 variable "classic_load_balancers_aggregation" {
-  type    = string
-  default = "MEAN"
+  type        = string
+  description = "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Classic Load Balancer resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information."
+  default     = "MEAN"
   validation {
     condition = contains([
       "SUM",
@@ -94,13 +105,15 @@ variable "classic_load_balancers_aggregation" {
 }
 
 variable "elastic_ip_addresses" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Whether to protect Elastic IP Addresses or not."
+  default     = true
 }
 
 variable "elastic_ip_addresses_aggregation" {
-  type    = string
-  default = "SUM"
+  type        = string
+  description = "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events. This will define the aggregation for Elastic IP Address resources in this module. See [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html) for more information."
+  default     = "SUM"
   validation {
     condition = contains([
       "SUM",
