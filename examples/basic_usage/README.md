@@ -11,17 +11,24 @@ No requirements.
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.23.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield-all"></a> [shield-all](#module\_shield-all) | so1omon563/shield-advanced/aws | 1.0.0 |
+| <a name="module_shield-individual"></a> [shield-individual](#module\_shield-individual) | so1omon563/shield-advanced/aws | 2.0.0 |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_eip.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
+| [aws_availability_zones.available](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
 
@@ -31,5 +38,5 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_shield-all"></a> [shield-all](#output\_shield-all) | n/a |
+| <a name="output_shield-individual"></a> [shield-individual](#output\_shield-individual) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
