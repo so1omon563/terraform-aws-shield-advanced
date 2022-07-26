@@ -1,7 +1,6 @@
-resource "aws_shield_protection_group" "all" {
-  protection_group_id = "all-resources"
-  aggregation         = var.aggregation
-  pattern             = "ALL"
+resource "aws_shield_protection" "shield" {
+  name         = local.name
+  resource_arn = var.resource_arn
 
   tags = local.tags
 }
