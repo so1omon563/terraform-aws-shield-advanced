@@ -1,6 +1,6 @@
 # AWS Shield Advanced protection by resource type
 
-Creates AWS Shield Advanced protection for all supported resources by type.
+Creates an AWS Shield Advanced protection group for all supported resources by type.
 
 These resources include:
 
@@ -20,7 +20,7 @@ Protection is accomplished by resource type, and will protect all resources of t
 
 To select / de-select resources, use the appropriate resource `boolean` variable. You can also change the default `aggregation` value for each resource type if desired.
 
-For protecting individual resources, there is the `individual_shield` submodule. This submodule can be directly called to create a single protection for a single resource.
+If you wish to group all resources, there is a `group_by_all` submodule.
 
 This submodule can be found under the [modules](https://github.com/so1omon563/terraform-aws-shield/tree/main/modules) directory.
 
@@ -42,7 +42,7 @@ Auto-generated technical documentation is created using [`terraform-docs`](https
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.22.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.23.0 |
 
 ## Modules
 
