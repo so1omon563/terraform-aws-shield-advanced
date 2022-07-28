@@ -18,8 +18,8 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield"></a> [shield](#module\_shield) | ../../ | n/a |
-| <a name="module_shield-arbitrary"></a> [shield-arbitrary](#module\_shield-arbitrary) | ../..//modules/group_by_arbitrary/ | n/a |
+| <a name="module_shield"></a> [shield](#module\_shield) | so1omon563/shield-advanced/aws | 3.0.0 |
+| <a name="module_shield-arbitrary"></a> [shield-arbitrary](#module\_shield-arbitrary) | so1omon563/shield-advanced/aws//modules/group_by_arbitrary | 3.0.0 |
 
 ## Resources
 

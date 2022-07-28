@@ -19,9 +19,8 @@ resource "aws_eip" "example" {
 
 # Protect the Elastic IP address.
 module "shield" {
-  # source       = "so1omon563/shield-advanced/aws"
-  # version      = "3.0.0" # Replace with appropriate version
-  source = "../../"
+  source  = "so1omon563/shield-advanced/aws"
+  version = "3.0.0" # Replace with appropriate version
 
   # Pass in the name you wish to use for the resource, and the ARN of the resource to be protected.
   name_resource_arn_map = {
@@ -38,9 +37,8 @@ output "shield" {
 
 # Add previously protected resources into group.
 module "shield-arbitrary" {
-  #   source  = "so1omon563/shield-advanced/aws//modules/group_by_arbitrary"
-  #   version = "3.0.0" # Replace with appropriate version
-  source = "../..//modules/group_by_arbitrary/"
+  source  = "so1omon563/shield-advanced/aws//modules/group_by_arbitrary"
+  version = "3.0.0" # Replace with appropriate version
 
   name    = "example-group"
   members = ["arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"]
