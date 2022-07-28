@@ -52,8 +52,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Short, descriptive name of the environment. All resources will be named using this value as a prefix. | `string` | n/a | yes |
-| <a name="input_resource_arn"></a> [resource\_arn](#input\_resource\_arn) | The ARN of the resource to be protected. | `string` | n/a | yes |
+| <a name="input_name_resource_arn_map"></a> [name\_resource\_arn\_map](#input\_name\_resource\_arn\_map) | A map of names and ARNs of resources to be protected. The name will be used as the name of the resource in the AWS console. | `map(string)` | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tag names and values for tags to apply to all taggable resources created by the module. Default value is a blank map to allow for using Default Tags in the provider. | `map(string)` | `{}` | no |
 
 ## Outputs

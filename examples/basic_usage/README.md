@@ -19,7 +19,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield-individual"></a> [shield-individual](#module\_shield-individual) | so1omon563/shield-advanced/aws | 2.0.0 |
+| <a name="module_shield"></a> [shield](#module\_shield) | ../../ | n/a |
 
 ## Resources
 
@@ -38,5 +38,5 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_shield-individual"></a> [shield-individual](#output\_shield-individual) | n/a |
+| <a name="output_shield"></a> [shield](#output\_shield) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
