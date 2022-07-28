@@ -3,7 +3,6 @@
 Basic usage example can be found in the `main.tf` source file.
 
 Example shows using Default Tags in the provider as well as passing additional tags into the resource.
-
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -20,6 +19,7 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_shield"></a> [shield](#module\_shield) | ../../ | n/a |
+| <a name="module_shield-arbitrary"></a> [shield-arbitrary](#module\_shield-arbitrary) | ../..//modules/group_by_arbitrary/ | n/a |
 
 ## Resources
 
@@ -39,4 +39,5 @@ No inputs.
 | Name | Description |
 |------|-------------|
 | <a name="output_shield"></a> [shield](#output\_shield) | n/a |
+| <a name="output_shield-arbitrary"></a> [shield-arbitrary](#output\_shield-arbitrary) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

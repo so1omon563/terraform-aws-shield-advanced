@@ -1,6 +1,7 @@
 resource "aws_shield_protection" "shield" {
-  name         = local.name
-  resource_arn = var.resource_arn
+  for_each     = var.name_resource_arn_map
+  name         = each.key
+  resource_arn = each.value
 
   tags = local.tags
 }
