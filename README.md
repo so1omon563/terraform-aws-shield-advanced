@@ -16,7 +16,7 @@ These resources can include:
 
 - Elastic IP address
 
-Submodules for protection groups (`group_by_all` and `group_by_resource_type`) can be found under the [modules](../../modules) directory.
+Submodules for protection groups (`group_by_all` and `group_by_resource_type`) can be found under the [modules](modules) directory.
 
 **Please note that there are no tests for this module at this time. The testing framework we use does not cover these resource types currently.**
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
