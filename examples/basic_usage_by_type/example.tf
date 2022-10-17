@@ -10,7 +10,7 @@ provider "aws" {
 # Only protecting Application Load Balancers
 module "shield-by-resource-type" {
   source  = "so1omon563/shield-advanced/aws//modules/group_by_resource_type"
-  version = "2.0.0" # Replace with appropriate version
+  version = "3.0.0" # Replace with appropriate version
 
   tags = {
     example = "true"

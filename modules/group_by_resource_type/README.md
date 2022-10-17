@@ -29,7 +29,13 @@ Examples for use can be found under the [examples](https://github.com/so1omon563
 **Please note that there are no tests for this module at this time. The testing framework we use does not cover these resource types currently.**
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 Auto-generated technical documentation is created using [`terraform-docs`](https://terraform-docs.io/)
+## Examples
+
+```hcl
+# See examples under the top level examples directory for more information on how to use this module.
+```
 
 ## Requirements
 
@@ -42,7 +48,7 @@ Auto-generated technical documentation is created using [`terraform-docs`](https
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.23.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.35.0 |
 
 ## Modules
 
@@ -87,4 +93,6 @@ No modules.
 | <a name="output_shield_elastic_ip_addresses"></a> [shield\_elastic\_ip\_addresses](#output\_shield\_elastic\_ip\_addresses) | A map of properties for the created Elastic IP Address AWS Shield protections. |
 | <a name="output_shield_global_accelerators"></a> [shield\_global\_accelerators](#output\_shield\_global\_accelerators) | A map of properties for the created Global Accelerator AWS Shield protections. |
 | <a name="output_shield_route53_hosted_zone"></a> [shield\_route53\_hosted\_zone](#output\_shield\_route53\_hosted\_zone) | A map of properties for the created Route53 Hosted Zone AWS Shield protections. |
+
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

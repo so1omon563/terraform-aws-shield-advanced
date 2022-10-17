@@ -1,1 +1,24 @@
 formatter: markdown
+
+content: |-
+
+  {{ .Header }}
+  ## Examples
+
+  ```hcl
+  {{ include "example.tf" }}
+  ```
+
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Modules }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  {{ .Footer }}
