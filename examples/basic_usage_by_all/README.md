@@ -1,10 +1,38 @@
-# Basic usage
+# Basic usage by ALL
 
-Basic usage example can be found in the `main.tf` source file.
+Basic usage example grouping by All.
 
 Example shows using Default Tags in the provider as well as passing additional tags into the resource.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+
+## Examples
+
+```hcl
+provider "aws" {
+  default_tags {
+    tags = {
+      environment = "dev"
+      terraform   = "true"
+    }
+  }
+}
+
+module "shield-all" {
+  source  = "so1omon563/shield-advanced/aws//modules/group_by_all"
+  version = "3.0.0" # Replace with appropriate version
+
+  tags = {
+    example = "true"
+  }
+}
+
+output "shield-all" {
+  value = module.shield-all
+}
+```
+
 ## Requirements
 
 No requirements.
@@ -17,7 +45,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield-all"></a> [shield-all](#module\_shield-all) | so1omon563/shield-advanced/aws//modules/group_by_all | 2.0.0 |
+| <a name="module_shield-all"></a> [shield-all](#module\_shield-all) | so1omon563/shield-advanced/aws//modules/group_by_all | 3.0.0 |
 
 ## Resources
 
@@ -32,4 +60,6 @@ No inputs.
 | Name | Description |
 |------|-------------|
 | <a name="output_shield-all"></a> [shield-all](#output\_shield-all) | n/a |
+
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

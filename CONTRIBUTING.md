@@ -10,7 +10,7 @@ All partcipants are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md)
 
 We utilize **Github Issues** for issue tracking and contributions. You can contribute in two ways:
 
-1. Reporting an issue or making a feature request [here](https://github.com/so1omon563/terraform-aws-shield-advanced/issues/new).
+1. Reporting an issue or making a feature request [here](../../issues/new).
 2. Adding features or fixing bugs yourself and contributing your code to InSpec.
 
 ## Contribution Process
@@ -78,7 +78,6 @@ The DCO requires a sign-off message in the following format appear on each commi
 
     Signed-off-by: Fake Name <fake.name@fakemail.com>
 
-
 The DCO text can either be manually added to your commit body, or you can add either **-s** or **--signoff** to your usual git commit commands. If you forget to add the sign-off you can also amend a previous commit with the sign-off by running **git commit --amend -s**. If you've pushed your changes to Github already you'll need to force push your branch after this with **git push -f**.
 
 # Technical Requirements
@@ -88,6 +87,7 @@ Testing and pre-commit checks are performed using a docker image specified in [.
 In order to perform the tests, you will need a working [docker](https://docker.com) environment.
 
 We also suggest ensuring that you have your `awscli` environment set up, and using `aws-runas` to assist with AWS permissions.:
+
 - [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [aws-runas](https://mmmorris1975.github.io/aws-runas/)
 
@@ -134,7 +134,6 @@ Another useful option is to use the [EC2 metatdata server](https://mmmorris1975.
 Once inside the container, with your AWS credentials set, you can run the tests by running the following command:
 
     bundle exec kitchen test
-
 
 Note that if using `aws-runas` in the container to set your AWS profile, you will need to call it with the -E flag, like so:
 
