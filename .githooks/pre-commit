@@ -1,38 +1,56 @@
-#!/bin/sh
+#!/bin/bash
 source .image
 
-docker images | grep $IMAGE &> /dev/null
+docker images | grep "$IMAGE" &>/dev/null
 IMAGE_EXISTS=$?
 
 if [[ $IMAGE_EXISTS -ne 0 ]]; then
-  docker pull $IMAGE
+  docker pull "$IMAGE"
 fi
 
 repo_root=$(git rev-parse --show-toplevel)
-cd ${repo_root}
+cd "${repo_root}" || exit
 
-docker ps -a | grep $IMAGE &> /dev/null
+docker ps -a | grep "$IMAGE" &>/dev/null
 CONTAINER_EXISTS=$?
 
 if [[ $CONTAINER_EXISTS -ne 0 ]]; then
+  if [ -z $AWS_DEFAULT_REGION ] && [ -z $AWS_REGION ] && [ -z $AWS_ACCESS_KEY_ID ] && [ -z $AWS_SECRET_ACCESS_KEY ] && [ -z $AWS_SESSION_TOKEN ]; then
+
     docker run --rm \
-        -v ${repo_root}:${repo_root} \
-        -v $HOME/.ssh:/root/.ssh:ro \
-        -v $HOME/.cache/pre-commit:/root/.cache/pre-commit \
-        -v $HOME/.terraform.d/plugin-cache:/root/.terraform.d/plugin-cache \
-        -w ${repo_root} \
-        -e TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache" \
-        --entrypoint .githooks/pre-commit.installed \
-        $IMAGE
+      -v "${repo_root}":"${repo_root}" \
+      -v "$HOME"/.ssh:/root/.ssh:ro \
+      -v "$HOME"/.cache/pre-commit:/root/.cache/pre-commit \
+      -v "$HOME"/.terraform.d/plugin-cache:/root/.terraform.d/plugin-cache \
+      -v "$HOME"/.aws:/root/.aws:rw \
+      -w "${repo_root}" \
+      -e TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache" \
+      --entrypoint .githooks/pre-commit.installed \
+      "$IMAGE"
+
+  else
+    docker run --rm \
+      -v "${repo_root}":"${repo_root}" \
+      -v "$HOME"/.ssh:/root/.ssh:ro \
+      -v "$HOME"/.cache/pre-commit:/root/.cache/pre-commit \
+      -v "$HOME"/.terraform.d/plugin-cache:/root/.terraform.d/plugin-cache \
+      -v "$HOME"/.aws:/root/.aws:rw \
+      -w "${repo_root}" \
+      -e TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache" \
+      -e AWS_DEFAULT_REGION="$AWS_DEFAULT_REGION" \
+      -e AWS_REGION="$AWS_REGION" \
+      -e AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" \
+      -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" \
+      -e AWS_SESSION_TOKEN="$AWS_SESSION_TOKEN" \
+      --entrypoint .githooks/pre-commit.installed \
+      "$IMAGE"
+  fi
 else
-    echo "Please exit the running container before running pre-commit"
+  echo "Please exit the running container before running pre-commit"
+  exit 1
 fi
 
 # Keep module docs up to date
-for i in $(find ${repo_root} -name "README.md")
-do
-  git add $i
+for i in $(find "${repo_root}" -name "README.md"); do
+  git add "$i"
 done
-
-# Run file cleanup script
-${repo_root}/scripts/cleanup.sh

@@ -11,6 +11,6 @@ List any existing issues this PR resolves.
 Please fill box or appropriate ([x]) or mark N/A.
 
 - [ ] Documentation provided or updated for resources
-- [ ] Any new functionality includes kitchen-terraform/inspec tests to verify functionality.
-- [ ] All existing kitchen-terraform/inspec tests pass
+- [ ] Any new functionality includes terraform tests / checks to verify functionality.
+- [ ] All existing automated terraform tests pass
 - [ ] All commits have been signed-off for the Developer Certificate of Origin. See info [here](../CONTRIBUTING.md#developer-certification-of-origin-dco)

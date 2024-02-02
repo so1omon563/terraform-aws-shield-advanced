@@ -19,12 +19,11 @@ resource "aws_eip" "example" {
 
 # Protect the EIP
 module "shield" {
-  source  = "so1omon563/shield-advanced/aws"
-  version = "3.0.0" # Replace with appropriate version
+  source = "../.."
 
   # Pass in the name you wish to use for the resource, and the ARN of the resource to be protected.
   name_resource_arn_map = {
-    "example_resource" = "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"
+    "basic_testing_resource" = "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"
   }
   tags = {
     example = "true"
