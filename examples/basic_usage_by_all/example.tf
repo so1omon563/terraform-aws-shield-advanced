@@ -9,7 +9,7 @@ provider "aws" {
 
 module "shield-all" {
   source  = "so1omon563/shield-advanced/aws//modules/group_by_all"
-  version = "3.0.0" # Replace with appropriate version
+  version = "4.0.0" # Replace with appropriate version
 
   tags = {
     example = "true"

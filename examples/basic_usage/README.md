@@ -32,7 +32,7 @@ resource "aws_eip" "example" {
 # Protect the EIP
 module "shield" {
   source  = "so1omon563/shield-advanced/aws"
-  version = "3.0.0" # Replace with appropriate version
+  version = "4.0.0" # Replace with appropriate version
 
   # Pass in the name you wish to use for the resource, and the ARN of the resource to be protected.
   name_resource_arn_map = {
@@ -62,7 +62,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_shield"></a> [shield](#module\_shield) | so1omon563/shield-advanced/aws | 3.0.0 |
+| <a name="module_shield"></a> [shield](#module\_shield) | so1omon563/shield-advanced/aws | 4.0.0 |
 
 ## Resources
 
