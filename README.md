@@ -16,12 +16,12 @@ These resources can include:
 
 - Elastic IP address
 
-Submodules for protection groups (`group_by_all` and `group_by_resource_type`) can be found under the `modules` directory.
+Submodules for protection groups (`group_by_all`, `group_by_arbitrary`, and `group_by_resource_type`) can be found under the `modules` directory.
 
-**Please note that there are no tests for this module at this time. The testing framework we use does not cover these resource types currently.**
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 Auto-generated technical documentation is created using [`terraform-docs`](https://terraform-docs.io/)
+
 ## Examples
 
 ```hcl
@@ -63,6 +63,5 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_shield"></a> [shield](#output\_shield) | A map of properties for the created AWS Shield protection. |
-
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
