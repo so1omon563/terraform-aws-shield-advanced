@@ -25,7 +25,7 @@ data "aws_caller_identity" "current" {}
 # Create an Elastic IP address to be protected.
 resource "aws_eip" "example" {
   #checkov:skip=CKV2_AWS_19:EIP is for example only
-  vpc = true
+  domain = "vpc"
 }
 
 # Protect the Elastic IP address.
@@ -72,7 +72,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.35.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.34.0 |
 
 ## Modules
 
