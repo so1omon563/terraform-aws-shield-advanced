@@ -1,24 +1,43 @@
-name: Bump version
+name: Release
+
 on:
   pull_request_target:
+    branches:
+      - main
     types:
       - closed
-permissions: read-all
+
+permissions:
+  contents: write
+
 jobs:
-  if_merged:
-    if: github.event.pull_request.merged == true
+  release:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.1.1
-        with:
-          fetch-depth: "0"
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.67.0
-        env:
-          DEFAULT_BUMP: patch
-          RELEASE_BRANCHES: main
+        id: version
+        uses: so1omon563/custom-semver-bumper@v1
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
+          default_bump: patch
+
+      - name: Find previous release
+        id: previous-release
+        if: steps.version.outputs.should_release == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="$(gh release list --exclude-drafts --exclude-pre-releases --limit 1 --json tagName --jq '.[0].tagName // ""')"
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+
+      - name: Create GitHub release
+        if: steps.version.outputs.should_release == 'true'
+        uses: so1omon563/release-creator@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.version.outputs.new_version }}
+          from-tag: ${{ steps.previous-release.outputs.tag }}
+          tag-prefix: v
+          move-major-tag: true
+          move-minor-tag: true
