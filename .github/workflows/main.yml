@@ -39,5 +39,3 @@ jobs:
           tag: ${{ steps.version.outputs.new_version }}
           from-tag: ${{ steps.previous-release.outputs.tag }}
           tag-prefix: v
-          move-major-tag: true
-          move-minor-tag: true
