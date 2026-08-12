@@ -9,7 +9,14 @@ terraform {
   }
 }
 
+variable "aws_region" {
+  type    = string
+  default = "us-east-1"
+}
+
 provider "aws" {
+  region = var.aws_region
+
   default_tags {
     tags = {
       environment = "dev"
@@ -18,7 +25,6 @@ provider "aws" {
   }
 }
 
-data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
 # Create an Elastic IP address to be protected.
@@ -34,7 +40,7 @@ module "shield" {
 
   # Pass in the name you wish to use for the resource, and the ARN of the resource to be protected.
   name_resource_arn_map = {
-    "example_resource_for_group" = "arn:aws:ec2:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"
+    "example_resource_for_group" = "arn:aws:ec2:${var.aws_region}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"
   }
   tags = {
     example = "true"
@@ -51,7 +57,7 @@ module "shield-arbitrary" {
   version = "4.0.0" # Replace with appropriate version
 
   name    = "example-group"
-  members = ["arn:aws:ec2:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"]
+  members = ["arn:aws:ec2:${var.aws_region}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"]
 
   tags = {
     example = "true"
