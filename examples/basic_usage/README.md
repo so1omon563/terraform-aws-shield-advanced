@@ -21,7 +21,14 @@ terraform {
   }
 }
 
+variable "aws_region" {
+  type    = string
+  default = "us-east-1"
+}
+
 provider "aws" {
+  region = var.aws_region
+
   default_tags {
     tags = {
       environment = "dev"
@@ -30,8 +37,6 @@ provider "aws" {
   }
 }
 
-data "aws_availability_zones" "available" {}
-data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
 # Create an Elastic IP to be protected
@@ -47,7 +52,7 @@ module "shield" {
 
   # Pass in the name you wish to use for the resource, and the ARN of the resource to be protected.
   name_resource_arn_map = {
-    "example_resource" = "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"
+    "example_resource" = "arn:aws:ec2:${var.aws_region}:${data.aws_caller_identity.current.account_id}:eip-allocation/${aws_eip.example.id}"
   }
   tags = {
     example = "true"
@@ -70,7 +75,7 @@ output "shield" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.54.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.58.0 |
 
 ## Modules
 
@@ -83,13 +88,13 @@ output "shield" {
 | Name | Type |
 |------|------|
 | [aws_eip.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
-| [aws_availability_zones.available](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
-| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | n/a | `string` | `"us-east-1"` | no |
 
 ## Outputs
 
